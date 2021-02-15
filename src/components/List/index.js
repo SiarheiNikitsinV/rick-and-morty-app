@@ -1,4 +1,6 @@
 import React from "react";
+import ListItem from "./ListItem";
+import S from "./styled";
 
 const List = ({ add, counter, characters }) => (
   <div>
@@ -7,7 +9,8 @@ const List = ({ add, counter, characters }) => (
     <div>
       <button onClick={add}>Add 1</button>
     </div>
-    <div>
+    <h1>Rick and Morty characters</h1>
+    <S.ListContainer>
       {characters.map((character) => {
         const {
           id,
@@ -19,17 +22,18 @@ const List = ({ add, counter, characters }) => (
           location,
         } = character;
         return (
-          <div key={`${id}`}>
-            <img src={`${image}`} />
-            <p>Name: {`${name}`}</p>
-            <p>Status: {`${status}`}</p>
-            <p>Species: {`${species}`}</p>
-            <p>Gender: {`${gender}`}</p>
-            <p>Location: {`${location.name}`}</p>
-          </div>
+          <ListItem
+            key={id}
+            image={image}
+            name={name}
+            status={status}
+            species={species}
+            gender={gender}
+            location={location.name}
+          />
         );
       })}
-    </div>
+    </S.ListContainer>
   </div>
 );
 
