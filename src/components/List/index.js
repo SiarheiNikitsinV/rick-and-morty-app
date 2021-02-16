@@ -2,14 +2,9 @@ import React from "react";
 import ListItem from "./ListItem";
 import S from "./styled";
 
-const List = ({ add, counter, characters }) => (
-  <div>
-    {console.log("ST: ", characters)}
-    <div>Counter: {counter}</div>
-    <div>
-      <button onClick={add}>Add 1</button>
-    </div>
-    <h1>Rick and Morty characters</h1>
+const List = ({ characters }) => (
+  <S.ListWrapper>
+    <h1>"Rick and Morty Universe"</h1>
     <S.ListContainer>
       {characters.map((character) => {
         const {
@@ -34,7 +29,7 @@ const List = ({ add, counter, characters }) => (
         );
       })}
     </S.ListContainer>
-  </div>
+  </S.ListWrapper>
 );
 
 export default List;

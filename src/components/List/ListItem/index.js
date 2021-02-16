@@ -2,29 +2,53 @@ import React from "react";
 import PropTypes from "prop-types";
 import S from "./styled";
 
-const ListItem = ({ image, name, status, species, gender, location }) => (
-  <S.ItemContainer>
-    <S.ItemImage>
-      <img src={image} />
-    </S.ItemImage>
-
-    <S.ItemInfo>
-      <span>Name:</span> {name}
-    </S.ItemInfo>
-    <S.ItemInfo>
-      <span>Status:</span> {status}
-    </S.ItemInfo>
-    <S.ItemInfo>
-      <span>Species:</span> {species}
-    </S.ItemInfo>
-    <S.ItemInfo>
-      <span>Gender:</span> {gender}
-    </S.ItemInfo>
-    <S.ItemInfo>
-      <span>Location:</span> {location}
-    </S.ItemInfo>
-  </S.ItemContainer>
+const ItemInfo = ({ first, second }) => (
+  <S.ItemInfo>
+    <span>{first}</span>: {second}
+  </S.ItemInfo>
 );
+
+ItemInfo.propTypes = {
+  first: PropTypes.string.isRequired,
+  second: PropTypes.string.isRequired,
+};
+
+const ListItem = ({ image, name, status, species, gender, location }) => {
+  const entities = [
+    {
+      f: "Name",
+      s: name,
+    },
+    {
+      f: "Status",
+      s: status,
+    },
+    {
+      f: "Species",
+      s: species,
+    },
+    {
+      f: "Gender",
+      s: gender,
+    },
+    {
+      f: "Location",
+      s: location,
+    },
+  ];
+
+  return (
+    <S.ItemContainer>
+      <S.ItemImage>
+        <img src={image} />
+      </S.ItemImage>
+
+      {entities.map((i) => (
+        <ItemInfo first={i.f} second={i.s} />
+      ))}
+    </S.ItemContainer>
+  );
+};
 
 ListItem.propTypes = {
   image: PropTypes.string.isRequired,

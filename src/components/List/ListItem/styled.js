@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
 const ItemContainer = styled.div`
-  border: 2px solid red;
+  border: 2px solid grey;
+  border-radius: 10px;
+  overflow: hidden;
+  background: yellow;
+
+  &:hover {
+    border-color: red;
+    cursor: pointer;
+  }
 `;
 
 const ItemImage = styled.div`
@@ -11,10 +19,9 @@ const ItemImage = styled.div`
 `;
 
 const ItemInfo = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   margin: 5px 10px;
   span {
-    // text-transform: uppercase;
     font-weight: bold;
   }
 `;
