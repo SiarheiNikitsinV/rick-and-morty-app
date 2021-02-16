@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
 
+import { getCharacters } from "../../selectors/listSelectors";
+
 import List from "../../components/List";
 
 const mapStateToProps = (state) => ({
-  characters: state.characters,
+  characters: getCharacters(state),
 });
 
 const mapDispatchToProps = {};

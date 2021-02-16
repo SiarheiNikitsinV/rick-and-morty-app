@@ -6,15 +6,15 @@ import { GET_DATA_FROM_API } from "../utils/constants/listConstants";
 const fetchData = (data = "") =>
   axios({
     method: "GET",
-    url: `https://rickandmortyapi.com/api/character/${data}`,
+    url: `https://rickandmortyapi.com/api/character/?page=${data}`,
     responseType: "",
   }).then((res) => {
-    return res.data.results;
+    return res.data;
   });
 
 function* fetchDataFromApi() {
   try {
-    const characters = yield call(() => fetchData());
+    const characters = yield call(() => fetchData(23));
     yield put({ type: GET_DATA_FROM_API, payload: characters });
   } catch (e) {}
 }

@@ -3,7 +3,10 @@ import { assoc } from "lodash/fp";
 import { GET_DATA_FROM_API } from "../utils/constants/listConstants";
 
 const initialState = {
-  characters: [],
+  characters: {
+    info: {},
+    results: [],
+  },
 };
 
 const listReducer = (state = initialState, { type, payload }) => {

@@ -6,7 +6,7 @@ const List = ({ characters }) => (
   <S.ListWrapper>
     <h1>"Rick and Morty Universe"</h1>
     <S.ListContainer>
-      {characters.map((character) => {
+      {characters.results.map((character) => {
         const {
           id,
           image,
