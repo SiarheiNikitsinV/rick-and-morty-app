@@ -5,18 +5,19 @@ const ListWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 
   h1 {
     text-transform: uppercase;
+    text-shadow: 2px 2px 2px #000000;
     margin: 50px auto;
+    color: white;
   }
 `;
 
 const ListContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 `;
 
 export default {

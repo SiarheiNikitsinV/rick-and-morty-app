@@ -8,6 +8,8 @@ const ItemContainer = styled.div`
   display: grid;
   grid-template-columns: 120px auto;
   padding: 5px 5px 0 5px;
+  -webkit-box-shadow: 5px 5px 10px -5px #000000;
+  box-shadow: 5px 5px 10px -5px #000000;
 
   &:hover {
     border-color: red;
@@ -25,7 +27,7 @@ const ItemImage = styled.div`
 const ItemEntities = styled.div``;
 
 const ItemInfo = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   margin: 5px 10px;
   span {
     font-weight: bold;

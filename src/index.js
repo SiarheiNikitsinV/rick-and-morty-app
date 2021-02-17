@@ -7,6 +7,7 @@ import listReducer from "./reducers/listReducer";
 import reportWebVitals from "./reportWebVitals";
 import List from "./containers/List";
 import rootSaga from "./sagas/sagas";
+import "./index.css";
 
 const sagaMiddleware = createSagaMiddleware();
 
