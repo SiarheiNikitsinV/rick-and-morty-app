@@ -5,6 +5,7 @@ const ListWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   h1 {
     text-transform: uppercase;
@@ -14,7 +15,7 @@ const ListWrapper = styled.div`
 
 const ListContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 `;
 

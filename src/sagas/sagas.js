@@ -2,6 +2,7 @@ import axios from "axios";
 import reduxSaga from "redux-saga";
 import { all, call, put } from "redux-saga/effects";
 import { GET_DATA_FROM_API } from "../utils/constants/listConstants";
+import { getDataFromApi } from "../actions/listActions";
 
 const fetchData = (data = "") =>
   axios({
@@ -12,11 +13,18 @@ const fetchData = (data = "") =>
     return res.data;
   });
 
-function* fetchDataFromApi() {
+function* fetchDataFromApi(data = 1) {
   try {
-    const characters = yield call(() => fetchData(23));
-    yield put({ type: GET_DATA_FROM_API, payload: characters });
-  } catch (e) {}
+    yield put(getDataFromApi.trigger());
+
+    const characters = yield call(() => fetchData(data));
+
+    yield put(getDataFromApi.success(characters));
+  } catch (e) {
+    yield put(getDataFromApi.failure(e.message));
+  } finally {
+    yield put(getDataFromApi.fulfill());
+  }
 }
 
 export default function* rootSaga() {

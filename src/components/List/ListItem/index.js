@@ -40,12 +40,14 @@ const ListItem = ({ image, name, status, species, gender, location }) => {
   return (
     <S.ItemContainer>
       <S.ItemImage>
-        <img src={image} />
+        <img src={image} alt={name} />
       </S.ItemImage>
 
-      {entities.map((i) => (
-        <ItemInfo first={i.f} second={i.s} />
-      ))}
+      <S.ItemEntities>
+        {entities.map((i) => (
+          <ItemInfo first={i.f} second={i.s} key={i.f} />
+        ))}
+      </S.ItemEntities>
     </S.ItemContainer>
   );
 };

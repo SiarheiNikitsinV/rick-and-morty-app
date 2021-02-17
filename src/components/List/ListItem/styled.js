@@ -5,6 +5,9 @@ const ItemContainer = styled.div`
   border-radius: 10px;
   overflow: hidden;
   background: yellow;
+  display: grid;
+  grid-template-columns: 120px auto;
+  padding: 5px 5px 0 5px;
 
   &:hover {
     border-color: red;
@@ -15,8 +18,11 @@ const ItemContainer = styled.div`
 const ItemImage = styled.div`
   img {
     width: 100%;
+    border-radius: 10px;
   }
 `;
+
+const ItemEntities = styled.div``;
 
 const ItemInfo = styled.div`
   font-size: 16px;
@@ -29,5 +35,6 @@ const ItemInfo = styled.div`
 export default {
   ItemContainer,
   ItemImage,
+  ItemEntities,
   ItemInfo,
 };

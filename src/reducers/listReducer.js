@@ -1,8 +1,10 @@
 import { assoc } from "lodash/fp";
 
-import { GET_DATA_FROM_API } from "../utils/constants/listConstants";
+import { getDataFromApi } from "../actions/listActions";
 
 const initialState = {
+  isLoading: false,
+  error: "",
   characters: {
     info: {},
     results: [],
@@ -11,8 +13,14 @@ const initialState = {
 
 const listReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case GET_DATA_FROM_API:
-      return { ...state, characters: payload };
+    case getDataFromApi.TRIGGER:
+      return assoc(["isLoading"], true, state);
+    case getDataFromApi.SUCCESS:
+      return assoc(["characters"], payload, state);
+    case getDataFromApi.FAILURE:
+      return assoc(["error"], payload, state);
+    case getDataFromApi.FULFILL:
+      return assoc(["isLoading"], false, state);
     default:
       return state;
   }
